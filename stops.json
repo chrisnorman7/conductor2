@@ -1,0 +1,607 @@
+{
+  "request_time": "2022-04-14T22:12:41+01:00",
+  "source": "O.S. (CodePoint), Network Rail, NaPTAN, ",
+  "acknowledgements": "Ordance Survey Open Data (CodePoint postcodes), Contains information of Network Rail Infrastructure Limited. License http://www.networkrail.co.uk/data-feeds/terms-and-conditions/, Contains DfT NaPTAN bus stops data, , Contains DfT NaPTAN tube station data",
+  "member": [
+    {
+      "type": "postcode",
+      "name": "CV2 1JQ",
+      "latitude": 52.44024305405173,
+      "longitude": -1.4716142097746903,
+      "accuracy": 100,
+      "distance": 27
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JN",
+      "latitude": 52.440012671151024,
+      "longitude": -1.4723672215815211,
+      "accuracy": 100,
+      "distance": 59
+    },
+    {
+      "type": "bus_stop",
+      "name": "Palm Tree Avenue - N-bound",
+      "latitude": 52.44018,
+      "longitude": -1.47063,
+      "accuracy": 20,
+      "atcocode": "43000025502",
+      "description": "Wood End",
+      "distance": 62.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JP",
+      "latitude": 52.44031825323243,
+      "longitude": -1.4723488619638097,
+      "accuracy": 100,
+      "distance": 67
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JL",
+      "latitude": 52.43970708905027,
+      "longitude": -1.472385580930247,
+      "accuracy": 100,
+      "distance": 69
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LF",
+      "latitude": 52.44062226040071,
+      "longitude": -1.4719774538134505,
+      "accuracy": 100,
+      "distance": 75
+    },
+    {
+      "type": "bus_stop",
+      "name": "Palm Tree Avenue - S-bound",
+      "latitude": 52.4403,
+      "longitude": -1.47039,
+      "accuracy": 20,
+      "atcocode": "43000025501",
+      "description": "Wood End",
+      "distance": 81.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1UT",
+      "latitude": 52.439241720456415,
+      "longitude": -1.4708465167794476,
+      "accuracy": 100,
+      "distance": 97
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JS",
+      "latitude": 52.4404343139856,
+      "longitude": -1.4701555273567841,
+      "accuracy": 100,
+      "distance": 103
+    },
+    {
+      "type": "bus_stop",
+      "name": "Honeysuckle Drive - E-bound",
+      "latitude": 52.43952,
+      "longitude": -1.4732,
+      "accuracy": 20,
+      "atcocode": "43000139903",
+      "description": "Bell Green",
+      "distance": 128.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LB",
+      "latitude": 52.4413298143921,
+      "longitude": -1.4713805446701511,
+      "accuracy": 100,
+      "distance": 146
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LN",
+      "latitude": 52.44087915030867,
+      "longitude": -1.4731365701100787,
+      "accuracy": 100,
+      "distance": 147
+    },
+    {
+      "type": "bus_stop",
+      "name": "Hillmorton Rd - S-bound",
+      "latitude": 52.44103,
+      "longitude": -1.47012,
+      "accuracy": 20,
+      "atcocode": "43000022001",
+      "description": "Wood End",
+      "distance": 147.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LE",
+      "latitude": 52.44137811177633,
+      "longitude": -1.4721302472807898,
+      "accuracy": 100,
+      "distance": 158
+    },
+    {
+      "type": "bus_stop",
+      "name": "Honeysuckle Drive - W-bound",
+      "latitude": 52.43947,
+      "longitude": -1.47373,
+      "accuracy": 20,
+      "atcocode": "43000139904",
+      "description": "Bell Green",
+      "distance": 163.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LJ",
+      "latitude": 52.441203235702694,
+      "longitude": -1.4732356853602118,
+      "accuracy": 100,
+      "distance": 177
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LA",
+      "latitude": 52.44158840986928,
+      "longitude": -1.4709066847596892,
+      "accuracy": 100,
+      "distance": 180
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1FF",
+      "latitude": 52.43970940585031,
+      "longitude": -1.4688843769779287,
+      "accuracy": 100,
+      "distance": 181
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JH",
+      "latitude": 52.44080164701294,
+      "longitude": -1.4739024758669736,
+      "accuracy": 100,
+      "distance": 185
+    },
+    {
+      "type": "bus_stop",
+      "name": "Almond Tree Avenue - SE-bound",
+      "latitude": 52.44132,
+      "longitude": -1.46964,
+      "accuracy": 20,
+      "atcocode": "43000026002",
+      "description": "Wood End",
+      "distance": 192.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LD",
+      "latitude": 52.441862107865006,
+      "longitude": -1.4718008116457997,
+      "accuracy": 100,
+      "distance": 206
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1FH",
+      "latitude": 52.43918688440886,
+      "longitude": -1.4686405756842433,
+      "accuracy": 100,
+      "distance": 215
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1UQ",
+      "latitude": 52.440228294179775,
+      "longitude": -1.468319122707369,
+      "accuracy": 100,
+      "distance": 218
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1FA",
+      "latitude": 52.4399404276644,
+      "longitude": -1.4682784534199087,
+      "accuracy": 100,
+      "distance": 219
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JR",
+      "latitude": 52.44189175406681,
+      "longitude": -1.470388148342057,
+      "accuracy": 100,
+      "distance": 222
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1JJ",
+      "latitude": 52.43910476221265,
+      "longitude": -1.4744081272475307,
+      "accuracy": 100,
+      "distance": 222
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LG",
+      "latitude": 52.44199905274731,
+      "longitude": -1.4722699454622248,
+      "accuracy": 100,
+      "distance": 227
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1LH",
+      "latitude": 52.44195626861684,
+      "longitude": -1.4727559382987312,
+      "accuracy": 100,
+      "distance": 232
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1FQ",
+      "latitude": 52.44061445170315,
+      "longitude": -1.46822620985425,
+      "accuracy": 100,
+      "distance": 232
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1FP",
+      "latitude": 52.438701047808216,
+      "longitude": -1.4685581542215174,
+      "accuracy": 100,
+      "distance": 248
+    },
+    {
+      "type": "bus_stop",
+      "name": "Shire Close - S-bound",
+      "latitude": 52.43902,
+      "longitude": -1.47487,
+      "accuracy": 20,
+      "atcocode": "43000025801",
+      "description": "Bell Green",
+      "distance": 254.0
+    },
+    {
+      "type": "bus_stop",
+      "name": "Shire Close - N-bound",
+      "latitude": 52.43963,
+      "longitude": -1.47526,
+      "accuracy": 20,
+      "atcocode": "43000025802",
+      "description": "Bell Green",
+      "distance": 258.0
+    },
+    {
+      "type": "postcode",
+      "name": "CV2 1FX",
+      "latitude": 52.43883430619902,
+      "longitude": -1.4682034989015609,
+      "accuracy": 100,
+      "distance": 260
+    },
+    {
+      "type": "bus_stop",
+      "name": "Milverton Rd - NW-bound",
+      "latitude": 52.4408,
+      "longitude": -1.46783,
+      "accuracy": 20,
+      "atcocode": "43000034401",
+      "description": "Wood End",
+      "distance": 264.0
+    },
+    {
+      "type": "bus_stop",
+      "name": "Riley Square - NW-bound",
+      "latitude": 52.4374,
+      "longitude": -1.47202,
+      "accuracy": 20,
+      "atcocode": "43000025401",
+      "description": "Bell Green",
+      "distance": 292.0
+    },
+    {
+      "type": "train_station",
+      "name": "Coventry Arena",
+      "latitude": 52.447731,
+      "longitude": -1.494125,
+      "accuracy": 100,
+      "station_code": "CAA",
+      "tiploc_code": "COVAREN",
+      "distance": 1757.0
+    },
+    {
+      "type": "train_station",
+      "name": "Bedworth",
+      "latitude": 52.479295,
+      "longitude": -1.467392,
+      "accuracy": 100,
+      "station_code": "BEH",
+      "tiploc_code": "BEDWRTH",
+      "distance": 4377.0
+    },
+    {
+      "type": "train_station",
+      "name": "Coventry",
+      "latitude": 52.400812,
+      "longitude": -1.51346,
+      "accuracy": 100,
+      "station_code": "COV",
+      "tiploc_code": "COVNTRY",
+      "distance": 5206.0
+    },
+    {
+      "type": "train_station",
+      "name": "Bermuda Park",
+      "latitude": 52.501432,
+      "longitude": -1.472178,
+      "accuracy": 100,
+      "station_code": "BEP",
+      "tiploc_code": "BERMPRK",
+      "distance": 6829.0
+    },
+    {
+      "type": "train_station",
+      "name": "Canley",
+      "latitude": 52.399239,
+      "longitude": -1.547575,
+      "accuracy": 100,
+      "station_code": "CNL",
+      "tiploc_code": "CANLEY",
+      "distance": 6868.0
+    },
+    {
+      "type": "train_station",
+      "name": "Nuneaton",
+      "latitude": 52.526369,
+      "longitude": -1.463875,
+      "accuracy": 100,
+      "station_code": "NUN",
+      "tiploc_code": "NNTN",
+      "distance": 9616.0
+    },
+    {
+      "type": "train_station",
+      "name": "Tile Hill",
+      "latitude": 52.395102,
+      "longitude": -1.596848,
+      "accuracy": 100,
+      "station_code": "THL",
+      "tiploc_code": "TILEH",
+      "distance": 9859.0
+    },
+    {
+      "type": "train_station",
+      "name": "Hinckley (Leics)",
+      "latitude": 52.534997,
+      "longitude": -1.371923,
+      "accuracy": 100,
+      "station_code": "HNK",
+      "tiploc_code": "HINCKLY",
+      "distance": 12530.0
+    },
+    {
+      "type": "train_station",
+      "name": "Berkswell",
+      "latitude": 52.395879,
+      "longitude": -1.64284,
+      "accuracy": 100,
+      "station_code": "BKW",
+      "tiploc_code": "BKSWELL",
+      "distance": 12614.0
+    },
+    {
+      "type": "train_station",
+      "name": "Hampton In Arden",
+      "latitude": 52.429031,
+      "longitude": -1.699931,
+      "accuracy": 100,
+      "station_code": "HIA",
+      "tiploc_code": "HMPTNIA",
+      "distance": 15534.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Birmingham Intl Rail Station (Air-Rail Link)",
+      "latitude": 52.45048,
+      "longitude": -1.72618,
+      "accuracy": 20,
+      "atcocode": "9400ZZARAIL1",
+      "description": "Birmingham Airport",
+      "distance": 17300.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Birmingham International Airport (Air-Rail link)",
+      "latitude": 52.45307,
+      "longitude": -1.73227,
+      "accuracy": 20,
+      "atcocode": "9400ZZARAIR1",
+      "description": "Birmingham Airport",
+      "distance": 17733.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Clifton South Tram Stop",
+      "latitude": 52.89664,
+      "longitude": -1.19268,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOCLS2",
+      "description": "Clifton",
+      "distance": 54144.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Summerwood Lane Tram Stop",
+      "latitude": 52.89694,
+      "longitude": -1.18792,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOSUM2",
+      "description": "Clifton",
+      "distance": 54287.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Summerwood Lane Tram Stop",
+      "latitude": 52.89698,
+      "longitude": -1.1879,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOSUM1",
+      "description": "Clifton",
+      "distance": 54292.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Holy Trinity Tram Stop",
+      "latitude": 52.897,
+      "longitude": -1.18123,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOHOL2",
+      "description": "Clifton",
+      "distance": 54453.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Holy Trinity Tram Stop",
+      "latitude": 52.89704,
+      "longitude": -1.18129,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOHOL1",
+      "description": "Clifton",
+      "distance": 54457.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Toton Lane Tram Stop",
+      "latitude": 52.9184,
+      "longitude": -1.26234,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOTOT2",
+      "description": "Toton",
+      "distance": 55031.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Clifton Centre Tram Stop",
+      "latitude": 52.90371,
+      "longitude": -1.17691,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOCLC2",
+      "description": "Clifton",
+      "distance": 55254.0
+    },
+    {
+      "type": "tram_stop",
+      "name": "Clifton Centre Tram Stop",
+      "latitude": 52.90374,
+      "longitude": -1.17698,
+      "accuracy": 20,
+      "atcocode": "9400ZZNOCLC1",
+      "description": "Clifton",
+      "distance": 55255.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Chesham Underground Station",
+      "latitude": 51.70521,
+      "longitude": -0.61125,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUCSM",
+      "description": "Chesham",
+      "distance": 100661.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Amersham Underground Station",
+      "latitude": 51.67392,
+      "longitude": -0.60749,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUAMS",
+      "description": "Amersham",
+      "distance": 103662.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Chalfont & Latimer Underground Station",
+      "latitude": 51.66796,
+      "longitude": -0.56065,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUCAL",
+      "description": "Little Chalfont",
+      "distance": 106058.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Chorleywood Underground Station",
+      "latitude": 51.65384,
+      "longitude": -0.51829,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUCYD",
+      "description": "Chorleywood",
+      "distance": 109046.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Rickmansworth Underground Station",
+      "latitude": 51.6402,
+      "longitude": -0.47366,
+      "accuracy": 20,
+      "atcocode": "9400ZZLURKW",
+      "description": "Rickmansworth",
+      "distance": 112103.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Croxley Underground Station",
+      "latitude": 51.64726,
+      "longitude": -0.44099,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUCXY",
+      "description": "Croxley Green",
+      "distance": 112859.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Watford Underground Station",
+      "latitude": 51.65732,
+      "longitude": -0.41861,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUWAF",
+      "description": "Watford",
+      "distance": 112951.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Moor Park Underground Station",
+      "latitude": 51.62971,
+      "longitude": -0.43202,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUMPK",
+      "description": "Moor Park",
+      "distance": 114777.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Northwood Underground Station",
+      "latitude": 51.611,
+      "longitude": -0.42399,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUNOW",
+      "description": "Northwood",
+      "distance": 116763.0
+    },
+    {
+      "type": "tube_station",
+      "name": "Northwood Hills Underground Station",
+      "latitude": 51.60053,
+      "longitude": -0.40897,
+      "accuracy": 20,
+      "atcocode": "9400ZZLUNWH",
+      "description": "Northwood Hills",
+      "distance": 118318.0
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'app_preferences.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+AppPreferences _$AppPreferencesFromJson(Map<String, dynamic> json) =>
+    AppPreferences(
+      appCredentials: json['appCredentials'] == null
+          ? null
+          : AppCredentials.fromJson(
+              json['appCredentials'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AppPreferencesToJson(AppPreferences instance) =>
+    <String, dynamic>{
+      'appCredentials': instance.appCredentials,
+    };
