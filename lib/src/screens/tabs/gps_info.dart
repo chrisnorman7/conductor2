@@ -11,9 +11,17 @@ import '../../widgets/loading.dart';
 class GpsInfo extends StatefulWidget {
   /// Create an instance.
   const GpsInfo({
+    required this.controller,
+    required this.initialPosition,
     // ignore: prefer_final_parameters
     super.key,
   });
+
+  /// The stream controller to use.
+  final StreamController<Position> controller;
+
+  /// The initial position.
+  final Position? initialPosition;
 
   /// Create state for this widget.
   @override
@@ -29,7 +37,7 @@ class GpsInfoState extends State<GpsInfo> {
   @override
   void initState() {
     super.initState();
-    _streamSubscription = Geolocator.getPositionStream().listen(
+    _streamSubscription = widget.controller.stream.listen(
       (final event) => setState(
         () => _position = event,
       ),
@@ -39,7 +47,7 @@ class GpsInfoState extends State<GpsInfo> {
   /// Build a widget.
   @override
   Widget build(final BuildContext context) {
-    final position = _position;
+    final position = _position ?? widget.initialPosition;
     if (position == null) {
       return const Loading();
     } else {

@@ -91,7 +91,10 @@ class MainPageState extends State<MainPage> {
           TabbedScaffoldTab(
             title: 'GPS Information',
             icon: const Icon(Icons.info),
-            builder: (final context) => const GpsInfo(),
+            builder: (final context) => GpsInfo(
+              controller: widget.controller,
+              initialPosition: _position,
+            ),
           )
         ],
       );
