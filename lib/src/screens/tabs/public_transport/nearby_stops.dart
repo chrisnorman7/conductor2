@@ -50,16 +50,16 @@ class NearbyStopsState extends State<NearbyStops> {
                   event.longitude,
                 ) >
                 event.accuracy) {
+          _position = event;
           try {
             final response = await get(
               credentials: widget.credentials,
               path: 'places.json',
               params: positionDict(event),
             );
-            _position = event;
             final data = response.data;
             if (data == null) {
-              throw Exception('Empty data.');
+              throw StateError('Empty data.');
             }
             _entries = GpsEntries.fromJson(data);
             setState(() {});
@@ -94,9 +94,8 @@ class NearbyStopsState extends State<NearbyStops> {
         loadingMessage: 'Waiting for nearby points...',
       );
     } else if (gpsEntries.entries.isEmpty) {
-      return const Focus(
-        autofocus: true,
-        child: Text('There are no nearby points to show.'),
+      return const CenterText(
+        text: 'There are no stops to show.',
       );
     } else {
       final entries = gpsEntries.entries
