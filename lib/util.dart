@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 /// Kilometres.
@@ -15,3 +16,12 @@ String sensibleDistance(final double metres, {final int digits = 2}) {
 /// Get a dictionary of coordinates from the given [position].
 Map<String, String> positionDict(final Position position) =>
     {'lat': position.latitude.toString(), 'lon': position.longitude.toString()};
+
+/// Push a widget with the given [builder].
+Future<void> pushWidget({
+  required final BuildContext context,
+  required final WidgetBuilder builder,
+}) =>
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: builder),
+    );

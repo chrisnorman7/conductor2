@@ -1,0 +1,148 @@
+{
+  "atcocode": "43000025501",
+  "smscode": "nwmpwdpm",
+  "request_time": "2022-04-15T08:10:07+01:00",
+  "name": "Palm Tree Avenue",
+  "stop_name": "Palm Tree Avenue",
+  "bearing": "S",
+  "indicator": "opp",
+  "locality": "Wood End",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -1.47039,
+      52.4403
+    ]
+  },
+  "departures": {
+    "21": [
+      {
+        "mode": "bus",
+        "line": "21",
+        "line_name": "21",
+        "direction": "Willenhall, Remembrance Road",
+        "operator": "TCVW",
+        "date": "2022-04-15",
+        "expected_departure_date": "2022-04-15",
+        "aimed_departure_time": "08:23",
+        "expected_departure_time": "08:22",
+        "aimed": {
+          "arrival": {
+            "date": null,
+            "time": null
+          },
+          "departure": {
+            "date": "2022-04-15",
+            "time": "08:23"
+          }
+        },
+        "expected": {
+          "arrival": {
+            "date": null,
+            "time": null
+          },
+          "departure": {
+            "date": "2022-04-15",
+            "time": "08:22"
+          }
+        },
+        "best_departure_estimate": "08:22",
+        "status": {
+          "cancellation": {
+            "value": false,
+            "reason": null
+          }
+        },
+        "source": "NextBuses",
+        "dir": "inbound",
+        "operator_name": "National Express Coventry",
+        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/inbound/43000025501/2022-04-15/08:23/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
+      },
+      {
+        "mode": "bus",
+        "line": "21",
+        "line_name": "21",
+        "direction": "Willenhall, Remembrance Road",
+        "operator": "TCVW",
+        "date": "2022-04-15",
+        "expected_departure_date": "2022-04-15",
+        "aimed_departure_time": "08:43",
+        "expected_departure_time": "08:43",
+        "aimed": {
+          "arrival": {
+            "date": null,
+            "time": null
+          },
+          "departure": {
+            "date": "2022-04-15",
+            "time": "08:43"
+          }
+        },
+        "expected": {
+          "arrival": {
+            "date": null,
+            "time": null
+          },
+          "departure": {
+            "date": "2022-04-15",
+            "time": "08:43"
+          }
+        },
+        "best_departure_estimate": "08:43",
+        "status": {
+          "cancellation": {
+            "value": false,
+            "reason": null
+          }
+        },
+        "source": "NextBuses",
+        "dir": "inbound",
+        "operator_name": "National Express Coventry",
+        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/inbound/43000025501/2022-04-15/08:43/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
+      },
+      {
+        "mode": "bus",
+        "line": "21",
+        "line_name": "21",
+        "direction": "Willenhall, Remembrance Road",
+        "operator": "TCVW",
+        "date": "2022-04-15",
+        "expected_departure_date": null,
+        "aimed_departure_time": "08:58",
+        "expected_departure_time": null,
+        "aimed": {
+          "arrival": {
+            "date": null,
+            "time": null
+          },
+          "departure": {
+            "date": "2022-04-15",
+            "time": "08:58"
+          }
+        },
+        "expected": {
+          "arrival": {
+            "date": null,
+            "time": null
+          },
+          "departure": {
+            "date": null,
+            "time": null
+          }
+        },
+        "best_departure_estimate": "08:58",
+        "status": {
+          "cancellation": {
+            "value": false,
+            "reason": null
+          }
+        },
+        "source": "NextBuses",
+        "dir": "inbound",
+        "operator_name": "National Express Coventry",
+        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/inbound/43000025501/2022-04-15/08:58/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
+      }
+    ]
+  },
+  "source": "NextBuses"
+}

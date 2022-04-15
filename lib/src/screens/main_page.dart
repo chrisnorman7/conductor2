@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../json/app_preferences.dart';
-import '../widgets/stops_list.dart';
 import '../widgets/tabbed_scaffold.dart';
 import 'tabs/gps_info.dart';
+import 'tabs/public_transport/favourite_stops.dart';
 import 'tabs/public_transport/nearby_stops.dart';
 
 /// The main page for the app.
@@ -38,15 +38,15 @@ class MainPageState extends State<MainPage> {
             icon: const Icon(Icons.emoji_transportation),
             topTabs: [
               TopTab(
-                builder: (final context) => StopsList(
-                  appPreferences: widget.appPreferences,
+                builder: (final context) => FavouriteStops(
+                  preferences: widget.appPreferences,
                 ),
                 text: 'Favourites',
                 icon: const Icon(Icons.bookmarks),
               ),
               TopTab(
                 builder: (final context) => NearbyStops(
-                  credentials: widget.appPreferences.appCredentials!,
+                  preferences: widget.appPreferences,
                 ),
                 text: 'Nearby',
                 icon: const Icon(Icons.near_me),

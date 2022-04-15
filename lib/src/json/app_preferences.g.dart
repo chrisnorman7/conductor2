@@ -12,9 +12,13 @@ AppPreferences _$AppPreferencesFromJson(Map<String, dynamic> json) =>
           ? null
           : AppCredentials.fromJson(
               json['appCredentials'] as Map<String, dynamic>),
+      favouriteTransitStops: (json['favouriteTransitStops'] as List<dynamic>?)
+          ?.map((e) => GpsEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$AppPreferencesToJson(AppPreferences instance) =>
     <String, dynamic>{
       'appCredentials': instance.appCredentials,
+      'favouriteTransitStops': instance.favouriteTransitStops,
     };

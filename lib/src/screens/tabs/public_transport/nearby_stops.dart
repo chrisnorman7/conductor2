@@ -5,23 +5,24 @@ import 'package:geolocator/geolocator.dart';
 
 import '../../../../util.dart';
 import '../../../http.dart';
-import '../../../json/app_credentials.dart';
+import '../../../json/app_preferences.dart';
 import '../../../json/gps_entries.dart';
 import '../../../json/gps_entry.dart';
 import '../../../widgets/center_text.dart';
 import '../../../widgets/loading.dart';
+import '../../../widgets/stops_list.dart';
 
 /// A widget for showing nearby stops.
 class NearbyStops extends StatefulWidget {
   /// Create an instance.
   const NearbyStops({
-    required this.credentials,
+    required this.preferences,
     // ignore: prefer_final_parameters
     super.key,
   });
 
-  /// The app credentials to use.
-  final AppCredentials credentials;
+  /// The app preferences to use.
+  final AppPreferences preferences;
 
   /// Create state for this widget.
   @override
@@ -53,7 +54,7 @@ class NearbyStopsState extends State<NearbyStops> {
           _position = event;
           try {
             final response = await get(
-              credentials: widget.credentials,
+              credentials: widget.preferences.appCredentials!,
               path: 'places.json',
               params: positionDict(event),
             );
@@ -101,32 +102,9 @@ class NearbyStopsState extends State<NearbyStops> {
       final entries = gpsEntries.entries
           .where((final element) => element.type != EntryType.postcode)
           .toList();
-      return ListView.builder(
-        itemBuilder: (final context, final index) {
-          final entry = entries[index];
-          final description = entry.description;
-          var title = entry.name;
-          if (description != null) {
-            title = '$title ($description)';
-          }
-          return ListTile(
-            autofocus: index == 0,
-            title: Text(title),
-            subtitle: Text(
-              sensibleDistance(
-                entry.distance ??
-                    Geolocator.distanceBetween(
-                      position.latitude,
-                      position.longitude,
-                      entry.latitude,
-                      entry.longitude,
-                    ),
-              ),
-            ),
-            onTap: () {},
-          );
-        },
-        itemCount: entries.length,
+      return StopsList(
+        stops: entries,
+        appPreferences: widget.preferences,
       );
     }
   }
