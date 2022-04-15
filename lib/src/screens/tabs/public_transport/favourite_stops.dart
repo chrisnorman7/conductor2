@@ -12,12 +12,20 @@ class FavouriteStops extends StatefulWidget {
   /// Create an instance.
   const FavouriteStops({
     required this.preferences,
+    required this.controller,
+    required this.initialPosition,
     // ignore: prefer_final_parameters
     super.key,
   });
 
   /// The app preferences to use.
   final AppPreferences preferences;
+
+  /// The location stream to listen to.
+  final StreamController<Position> controller;
+
+  /// The most recent position.
+  final Position? initialPosition;
 
   /// Create state for this widget.
   @override
@@ -33,7 +41,7 @@ class FavouriteStopsState extends State<FavouriteStops> {
   @override
   void initState() {
     super.initState();
-    _streamSubscription = Geolocator.getPositionStream().listen(
+    _streamSubscription = widget.controller.stream.listen(
       (final event) {
         final position = _position;
         if (position == null ||
@@ -55,7 +63,7 @@ class FavouriteStopsState extends State<FavouriteStops> {
   /// Build a widget.
   @override
   Widget build(final BuildContext context) {
-    final position = _position;
+    final position = _position ?? widget.initialPosition;
     if (position == null) {
       return const CenterText(text: 'Getting current location...');
     }

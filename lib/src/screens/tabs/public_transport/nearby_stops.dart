@@ -17,12 +17,28 @@ class NearbyStops extends StatefulWidget {
   /// Create an instance.
   const NearbyStops({
     required this.preferences,
+    required this.controller,
+    required this.initialPosition,
+    required this.gpsEntries,
+    required this.cachePositions,
     // ignore: prefer_final_parameters
     super.key,
   });
 
   /// The app preferences to use.
   final AppPreferences preferences;
+
+  /// The stream of location events to listen to.
+  final StreamController<Position> controller;
+
+  /// The most recent position.
+  final Position? initialPosition;
+
+  /// The cache of gps entries.
+  final GpsEntries? gpsEntries;
+
+  /// A method for caching GPS positions.
+  final ValueChanged<GpsEntries> cachePositions;
 
   /// Create state for this widget.
   @override
@@ -40,13 +56,13 @@ class NearbyStopsState extends State<NearbyStops> {
   @override
   void initState() {
     super.initState();
-    _streamSubscription = Geolocator.getPositionStream().listen(
+    _streamSubscription = widget.controller.stream.listen(
       (final event) async {
-        final oldPosition = _position;
-        if (oldPosition == null ||
+        final position = _position;
+        if (position == null ||
             Geolocator.distanceBetween(
-                  oldPosition.latitude,
-                  oldPosition.longitude,
+                  position.latitude,
+                  position.longitude,
                   event.latitude,
                   event.longitude,
                 ) >
@@ -62,7 +78,9 @@ class NearbyStopsState extends State<NearbyStops> {
             if (data == null) {
               throw StateError('Empty data.');
             }
-            _entries = GpsEntries.fromJson(data);
+            final gpsEntries = GpsEntries.fromJson(data);
+            _entries = gpsEntries;
+            widget.cachePositions(gpsEntries);
             setState(() {});
           } on Exception catch (e, s) {
             setState(
@@ -79,7 +97,7 @@ class NearbyStopsState extends State<NearbyStops> {
   /// Build a widget.
   @override
   Widget build(final BuildContext context) {
-    final position = _position;
+    final position = _position ?? widget.initialPosition;
     if (position == null) {
       return const Loading(
         loadingMessage: 'Getting current location...',
@@ -89,10 +107,10 @@ class NearbyStopsState extends State<NearbyStops> {
     if (error != null) {
       return CenterText(text: error);
     }
-    final gpsEntries = _entries;
+    final gpsEntries = _entries ?? widget.gpsEntries;
     if (gpsEntries == null) {
       return const Loading(
-        loadingMessage: 'Waiting for nearby points...',
+        loadingMessage: 'Waiting for nearby stops...',
       );
     } else if (gpsEntries.entries.isEmpty) {
       return const CenterText(

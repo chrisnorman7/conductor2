@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -28,6 +29,23 @@ class HomePageState extends State<HomePage> {
   AppPreferences? _appPreferences;
   bool? _serviceEnabled;
   LocationPermission? _locationPermission;
+  late final StreamSubscription<Position> _streamSubscription;
+  late final StreamController<Position> _controller;
+
+  /// Initialise stuff.
+  @override
+  void initState() {
+    super.initState();
+    _controller = StreamController.broadcast();
+    final positionStream = Geolocator.getPositionStream();
+    _streamSubscription = positionStream.listen(
+      (final event) {
+        if (_controller.hasListener) {
+          _controller.add(event);
+        } else {}
+      },
+    );
+  }
 
   /// Build a widget.
   @override
@@ -79,8 +97,17 @@ class HomePageState extends State<HomePage> {
             ..appCredentials = null
             ..save(),
         ),
+        controller: _controller,
       );
     }
+  }
+
+  /// Stop listening to the location stream.
+  @override
+  void dispose() {
+    super.dispose();
+    _streamSubscription.cancel();
+    _controller.close();
   }
 
   /// Get a refresh button.
