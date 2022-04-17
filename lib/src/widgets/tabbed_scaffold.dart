@@ -122,24 +122,26 @@ class TabbedScaffold extends StatefulWidget {
 
 /// State for [TabbedScaffold].
 class TabbedScaffoldState extends State<TabbedScaffold> {
-  late int _index;
+  late int _pageIndex;
 
   /// Set the initial index.
   @override
   void initState() {
     super.initState();
-    _index = 0;
+    _pageIndex = 0;
   }
 
   /// Build a widget.
   @override
   Widget build(final BuildContext context) {
+    final page = widget.tabs[_pageIndex];
+    final topTabs = page.topTabs;
     final gotoPageAction = CallbackAction<GotoPageIntent>(
       onInvoke: (final intent) {
-        final page = intent.page;
-        if (page < widget.tabs.length) {
+        final index = intent.page;
+        if (index < widget.tabs.length) {
           setState(() {
-            _index = page;
+            _pageIndex = index;
           });
         }
         return null;
@@ -148,7 +150,7 @@ class TabbedScaffoldState extends State<TabbedScaffold> {
     final switchPageAction = CallbackAction<SwitchPageIntent>(
       onInvoke: (final intent) {
         final direction = intent.direction;
-        var index = _index;
+        var index = _pageIndex;
         switch (direction) {
           case SwitchPageDirections.forwards:
             index += 1;
@@ -163,16 +165,14 @@ class TabbedScaffoldState extends State<TabbedScaffold> {
             }
             break;
         }
-        setState(() => _index = index);
+        setState(() => _pageIndex = index);
         return null;
       },
     );
-    final tab = widget.tabs[_index];
-    final builder = tab.builder;
-    final topTabs = tab.topTabs;
+    final builder = page.builder;
     final scaffold = Scaffold(
       appBar: AppBar(
-        actions: tab.actions,
+        actions: page.actions,
         bottom: topTabs == null
             ? null
             : TabBar(
@@ -186,7 +186,7 @@ class TabbedScaffoldState extends State<TabbedScaffold> {
                     )
                     .toList(),
               ),
-        title: Text(tab.title),
+        title: Text(page.title),
       ),
       body: topTabs == null
           ? Builder(builder: builder!)
@@ -199,7 +199,7 @@ class TabbedScaffoldState extends State<TabbedScaffold> {
                   )
                   .toList(),
             ),
-      floatingActionButton: tab.floatingActionButton,
+      floatingActionButton: page.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
         items: widget.tabs
             .map(
@@ -209,24 +209,29 @@ class TabbedScaffoldState extends State<TabbedScaffold> {
               ),
             )
             .toList(),
-        currentIndex: _index,
-        onTap: (final index) => setState(() => _index = index),
+        currentIndex: _pageIndex,
+        onTap: (final index) => setState(() => _pageIndex = index),
       ),
     );
     return Shortcuts(
       shortcuts: {
         for (var i = 0; i < _pageNumbers.length; i++)
-          SingleActivator(_pageNumbers[i], control: true): GotoPageIntent(i),
+          SingleActivator(
+            _pageNumbers[i],
+            control: Platform.isMacOS == false,
+            meta: Platform.isMacOS == true,
+          ): GotoPageIntent(i),
         SingleActivator(
           LogicalKeyboardKey.tab,
           control: Platform.isMacOS == false,
           meta: Platform.isMacOS == true,
         ): const SwitchPageIntent(SwitchPageDirections.forwards),
-        const SingleActivator(
+        SingleActivator(
           LogicalKeyboardKey.tab,
-          control: true,
+          control: Platform.isMacOS == false,
+          meta: Platform.isMacOS == true,
           shift: true,
-        ): const SwitchPageIntent(SwitchPageDirections.backwards)
+        ): const SwitchPageIntent(SwitchPageDirections.backwards),
       },
       child: Actions(
         actions: {

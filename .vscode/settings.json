@@ -17,6 +17,7 @@
     "todos",
     "transportapi",
     "UA",
-    "unawaited"
+    "unawaited",
+    "vsync"
   ]
 }
