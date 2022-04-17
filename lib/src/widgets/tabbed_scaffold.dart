@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -215,9 +217,10 @@ class TabbedScaffoldState extends State<TabbedScaffold> {
       shortcuts: {
         for (var i = 0; i < _pageNumbers.length; i++)
           SingleActivator(_pageNumbers[i], control: true): GotoPageIntent(i),
-        const SingleActivator(
+        SingleActivator(
           LogicalKeyboardKey.tab,
-          control: true,
+          control: Platform.isMacOS == false,
+          meta: Platform.isMacOS == true,
         ): const SwitchPageIntent(SwitchPageDirections.forwards),
         const SingleActivator(
           LogicalKeyboardKey.tab,
