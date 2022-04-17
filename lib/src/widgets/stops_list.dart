@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../../util.dart';
 import '../json/app_preferences.dart';
@@ -12,6 +13,7 @@ class StopsList extends StatefulWidget {
   const StopsList({
     required this.stops,
     required this.appPreferences,
+    this.position,
     // ignore: prefer_final_parameters
     super.key,
   });
@@ -22,6 +24,8 @@ class StopsList extends StatefulWidget {
   /// The app preferences to use.
   final AppPreferences appPreferences;
 
+  /// The current GPS position.
+  final Position? position;
   @override
   State<StopsList> createState() => _StopsListState();
 }
@@ -49,7 +53,15 @@ class _StopsListState extends State<StopsList> {
               stop = entry.toTrainStation();
               break;
           }
-          final distance = entry.distance;
+          final position = widget.position;
+          final distance = position == null
+              ? entry.distance
+              : Geolocator.distanceBetween(
+                  position.latitude,
+                  position.longitude,
+                  entry.latitude,
+                  entry.longitude,
+                );
           return ListTile(
             autofocus: index == 0,
             title: Text(entry.title),

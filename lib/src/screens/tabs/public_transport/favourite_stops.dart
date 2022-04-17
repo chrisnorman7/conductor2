@@ -63,17 +63,18 @@ class FavouriteStopsState extends State<FavouriteStops> {
   /// Build a widget.
   @override
   Widget build(final BuildContext context) {
-    final position = _position ?? widget.initialPosition;
-    if (position == null) {
-      return const CenterText(text: 'Getting current location...');
-    }
     final stops = widget.preferences.favouriteTransitStops;
     if (stops.isEmpty) {
       return const CenterText(text: 'You have no favourite stops.');
     }
+    final position = _position ?? widget.initialPosition;
+    if (position == null) {
+      return const CenterText(text: 'Getting current location...');
+    }
     return StopsList(
       stops: stops,
       appPreferences: widget.preferences,
+      position: position,
     );
   }
 
