@@ -82,7 +82,9 @@ class NearbyStopsState extends State<NearbyStops> {
             final gpsEntries = GpsEntries.fromJson(data);
             _entries = gpsEntries;
             widget.cachePositions(gpsEntries);
-            setState(() {});
+            if (mounted) {
+              setState(() {});
+            }
           } on Exception catch (e, s) {
             setState(
               () {
