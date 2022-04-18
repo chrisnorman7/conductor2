@@ -3,12 +3,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../util.dart';
 import '../http.dart';
 import '../json/app_preferences.dart';
 import '../json/transit_stops/train_station.dart';
 import '../json/transit_stops/transit_stop.dart';
 import '../widgets/cancel.dart';
 import '../widgets/center_text.dart';
+import '../widgets/loading.dart';
+import 'json_page.dart';
 
 /// A page for showing the given [stop].
 class DeparturesPage extends StatefulWidget {
@@ -33,18 +36,40 @@ class DeparturesPage extends StatefulWidget {
 
 /// State for [DeparturesPage].
 class DeparturesPageState extends State<DeparturesPage> {
+  Map<String, dynamic>? _json;
+
   /// Build a widget.
   @override
   Widget build(final BuildContext context) {
     final stop = widget.stop;
-    loadDepartures();
+    final json = _json;
     final isFavourite = widget.preferences.favouriteTransitStops
         .where((final element) => element.code == widget.stop.code)
         .isNotEmpty;
+    final Widget child;
+    if (json == null) {
+      loadDepartures();
+      child = const Loading(
+        loadingMessage: 'Loading departures...',
+      );
+    } else {
+      child = const CenterText(text: 'Loaded them.');
+    }
     return Cancel(
       child: Scaffold(
         appBar: AppBar(
           actions: [
+            if (json != null)
+              ElevatedButton(
+                onPressed: () => pushWidget(
+                  context: context,
+                  builder: (final context) => JsonPage(json: json),
+                ),
+                child: const Icon(
+                  Icons.javascript,
+                  semanticLabel: 'View JSON',
+                ),
+              ),
             ElevatedButton(
               onPressed: () {
                 if (isFavourite) {
@@ -70,7 +95,7 @@ class DeparturesPageState extends State<DeparturesPage> {
           ],
           title: Text(stop.name),
         ),
-        body: CenterText(text: stop.name),
+        body: child,
       ),
     );
   }
@@ -91,5 +116,8 @@ class DeparturesPageState extends State<DeparturesPage> {
     File('departures.json').writeAsStringSync(
       const JsonEncoder.withIndent('  ').convert(response.data),
     );
+    setState(() {
+      _json = response.data;
+    });
   }
 }
