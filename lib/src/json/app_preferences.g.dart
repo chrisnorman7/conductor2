@@ -13,7 +13,7 @@ AppPreferences _$AppPreferencesFromJson(Map<String, dynamic> json) =>
           : AppCredentials.fromJson(
               json['appCredentials'] as Map<String, dynamic>),
       favouriteTransitStops: (json['favouriteTransitStops'] as List<dynamic>?)
-          ?.map((e) => GpsEntry.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => TransitStop.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

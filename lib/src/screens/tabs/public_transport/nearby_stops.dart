@@ -8,6 +8,7 @@ import '../../../http.dart';
 import '../../../json/app_preferences.dart';
 import '../../../json/gps_entries.dart';
 import '../../../json/gps_entry.dart';
+import '../../../json/transit_stops/transit_stop.dart';
 import '../../../widgets/center_text.dart';
 import '../../../widgets/loading.dart';
 import '../../../widgets/stops_list.dart';
@@ -110,7 +111,7 @@ class NearbyStopsState extends State<NearbyStops> {
     final gpsEntries = _entries ?? widget.gpsEntries;
     if (gpsEntries == null) {
       return const Loading(
-        loadingMessage: 'Waiting for nearby stops...',
+        loadingMessage: 'Getting nearby stops...',
       );
     } else if (gpsEntries.entries.isEmpty) {
       return const CenterText(
@@ -119,10 +120,26 @@ class NearbyStopsState extends State<NearbyStops> {
     } else {
       final entries = gpsEntries.entries
           .where((final element) => element.type != EntryType.postcode)
-          .toList();
+          .map<TransitStop>(
+        (final e) {
+          switch (e.type) {
+            case EntryType.postcode:
+              return e.toPostcode();
+            case EntryType.busStop:
+              return e.toBusStop();
+            case EntryType.tubeStation:
+              return e.toTubeStation();
+            case EntryType.tramStop:
+              return e.toTramStop();
+            case EntryType.trainStation:
+              return e.toTrainStation();
+          }
+        },
+      ).toList();
       return StopsList(
         stops: entries,
         appPreferences: widget.preferences,
+        position: position,
       );
     }
   }

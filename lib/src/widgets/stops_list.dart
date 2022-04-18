@@ -3,7 +3,6 @@ import 'package:geolocator/geolocator.dart';
 
 import '../../util.dart';
 import '../json/app_preferences.dart';
-import '../json/gps_entry.dart';
 import '../json/transit_stops/transit_stop.dart';
 import '../screens/departures_page.dart';
 
@@ -19,7 +18,7 @@ class StopsList extends StatefulWidget {
   });
 
   /// The stops to show.
-  final List<GpsEntry> stops;
+  final List<TransitStop> stops;
 
   /// The app preferences to use.
   final AppPreferences appPreferences;
@@ -35,36 +34,19 @@ class _StopsListState extends State<StopsList> {
   @override
   Widget build(final BuildContext context) => ListView.builder(
         itemBuilder: (final context, final index) {
-          final entry = widget.stops[index];
-          TransitStop? stop;
-          switch (entry.type) {
-            case EntryType.postcode:
-              break;
-            case EntryType.busStop:
-              stop = entry.toBusStop();
-              break;
-            case EntryType.tubeStation:
-              stop = entry.toTubeStation();
-              break;
-            case EntryType.tramStop:
-              stop = entry.toTramStop();
-              break;
-            case EntryType.trainStation:
-              stop = entry.toTrainStation();
-              break;
-          }
+          final stop = widget.stops[index];
           final position = widget.position;
           final distance = position == null
-              ? entry.distance
+              ? null
               : Geolocator.distanceBetween(
                   position.latitude,
                   position.longitude,
-                  entry.latitude,
-                  entry.longitude,
+                  stop.latitude,
+                  stop.longitude,
                 );
           return ListTile(
             autofocus: index == 0,
-            title: Text(entry.title),
+            title: Text(stop.name),
             subtitle: Text(
               distance == null
                   ? 'Unknown'
@@ -72,18 +54,16 @@ class _StopsListState extends State<StopsList> {
                       distance,
                     ),
             ),
-            onTap: stop == null
-                ? null
-                : () async {
-                    await pushWidget(
-                      context: context,
-                      builder: (final context) => DeparturesPage(
-                        stop: stop!,
-                        preferences: widget.appPreferences,
-                      ),
-                    );
-                    setState(() {});
-                  },
+            onTap: () async {
+              await pushWidget(
+                context: context,
+                builder: (final context) => DeparturesPage(
+                  stop: stop,
+                  preferences: widget.appPreferences,
+                ),
+              );
+              setState(() {});
+            },
           );
         },
         itemCount: widget.stops.length,

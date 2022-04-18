@@ -37,8 +37,34 @@ class DeparturesPageState extends State<DeparturesPage> {
   Widget build(final BuildContext context) {
     final stop = widget.stop;
     loadDepartures();
+    final isFavourite = widget.preferences.favouriteTransitStops
+        .where((final element) => element.code == widget.stop.code)
+        .isNotEmpty;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          ElevatedButton(
+            onPressed: () {
+              if (isFavourite) {
+                widget.preferences.favouriteTransitStops.removeWhere(
+                  (final element) => element.code == widget.stop.code,
+                );
+              } else {
+                widget.preferences.favouriteTransitStops.add(widget.stop);
+              }
+              setState(() {});
+            },
+            child: isFavourite
+                ? const Icon(
+                    Icons.bookmark_remove,
+                    semanticLabel: 'Remove Favourite',
+                  )
+                : const Icon(
+                    Icons.bookmark_add,
+                    semanticLabel: 'Add Favourite',
+                  ),
+          )
+        ],
         title: Text(stop.name),
       ),
       body: CenterText(text: stop.name),

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_credentials.dart';
-import 'gps_entry.dart';
+import 'transit_stops/transit_stop.dart';
 
 part 'app_preferences.g.dart';
 
@@ -14,7 +14,7 @@ class AppPreferences {
   /// Create an instance.
   AppPreferences({
     this.appCredentials,
-    final List<GpsEntry>? favouriteTransitStops,
+    final List<TransitStop>? favouriteTransitStops,
   }) : favouriteTransitStops = favouriteTransitStops ?? [];
 
   /// Create an instance from a JSON object.
@@ -28,7 +28,7 @@ class AppPreferences {
   AppCredentials? appCredentials;
 
   /// The favourite transit stops.
-  final List<GpsEntry> favouriteTransitStops;
+  final List<TransitStop> favouriteTransitStops;
 
   /// Convert an instance to JSON.
   Map<String, dynamic> toJson() => _$AppPreferencesToJson(this);

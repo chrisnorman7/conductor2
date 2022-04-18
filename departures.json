@@ -1,17 +1,17 @@
 {
-  "atcocode": "43000025502",
-  "smscode": "nwmtgmtd",
-  "request_time": "2022-04-17T13:29:12+01:00",
+  "atcocode": "43000025501",
+  "smscode": "nwmpwdpm",
+  "request_time": "2022-04-18T12:20:26+01:00",
   "name": "Palm Tree Avenue",
   "stop_name": "Palm Tree Avenue",
-  "bearing": "N",
-  "indicator": "adj",
+  "bearing": "S",
+  "indicator": "opp",
   "locality": "Wood End",
   "location": {
     "type": "Point",
     "coordinates": [
-      -1.47063,
-      52.44018
+      -1.47039,
+      52.4403
     ]
   },
   "departures": {
@@ -20,20 +20,20 @@
         "mode": "bus",
         "line": "21",
         "line_name": "21",
-        "direction": "Wood End, Hillmorton Road",
+        "direction": "Willenhall, Remembrance Road",
         "operator": "TCVW",
-        "date": "2022-04-17",
-        "expected_departure_date": "2022-04-17",
-        "aimed_departure_time": "13:32",
-        "expected_departure_time": "13:33",
+        "date": "2022-04-18",
+        "expected_departure_date": "2022-04-18",
+        "aimed_departure_time": "12:21",
+        "expected_departure_time": "12:24",
         "aimed": {
           "arrival": {
             "date": null,
             "time": null
           },
           "departure": {
-            "date": "2022-04-17",
-            "time": "13:32"
+            "date": "2022-04-18",
+            "time": "12:21"
           }
         },
         "expected": {
@@ -42,11 +42,11 @@
             "time": null
           },
           "departure": {
-            "date": "2022-04-17",
-            "time": "13:33"
+            "date": "2022-04-18",
+            "time": "12:24"
           }
         },
-        "best_departure_estimate": "13:33",
+        "best_departure_estimate": "12:24",
         "status": {
           "cancellation": {
             "value": false,
@@ -54,28 +54,28 @@
           }
         },
         "source": "NextBuses",
-        "dir": "outbound",
+        "dir": "inbound",
         "operator_name": "National Express Coventry",
-        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/outbound/43000025502/2022-04-17/13:32/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
+        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/inbound/43000025501/2022-04-18/12:21/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
       },
       {
         "mode": "bus",
         "line": "21",
         "line_name": "21",
-        "direction": "Wood End, Hillmorton Road",
+        "direction": "Willenhall, Remembrance Road",
         "operator": "TCVW",
-        "date": "2022-04-17",
-        "expected_departure_date": "2022-04-17",
-        "aimed_departure_time": "13:52",
-        "expected_departure_time": "13:53",
+        "date": "2022-04-18",
+        "expected_departure_date": "2022-04-18",
+        "aimed_departure_time": "12:41",
+        "expected_departure_time": "12:41",
         "aimed": {
           "arrival": {
             "date": null,
             "time": null
           },
           "departure": {
-            "date": "2022-04-17",
-            "time": "13:52"
+            "date": "2022-04-18",
+            "time": "12:41"
           }
         },
         "expected": {
@@ -84,11 +84,11 @@
             "time": null
           },
           "departure": {
-            "date": "2022-04-17",
-            "time": "13:53"
+            "date": "2022-04-18",
+            "time": "12:41"
           }
         },
-        "best_departure_estimate": "13:53",
+        "best_departure_estimate": "12:41",
         "status": {
           "cancellation": {
             "value": false,
@@ -96,28 +96,28 @@
           }
         },
         "source": "NextBuses",
-        "dir": "outbound",
+        "dir": "inbound",
         "operator_name": "National Express Coventry",
-        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/outbound/43000025502/2022-04-17/13:52/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
+        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/inbound/43000025501/2022-04-18/12:41/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
       },
       {
         "mode": "bus",
         "line": "21",
         "line_name": "21",
-        "direction": "Wood End, Hillmorton Road",
+        "direction": "Willenhall, Remembrance Road",
         "operator": "TCVW",
-        "date": "2022-04-17",
-        "expected_departure_date": "2022-04-17",
-        "aimed_departure_time": "14:12",
-        "expected_departure_time": "14:13",
+        "date": "2022-04-18",
+        "expected_departure_date": null,
+        "aimed_departure_time": "13:01",
+        "expected_departure_time": null,
         "aimed": {
           "arrival": {
             "date": null,
             "time": null
           },
           "departure": {
-            "date": "2022-04-17",
-            "time": "14:12"
+            "date": "2022-04-18",
+            "time": "13:01"
           }
         },
         "expected": {
@@ -126,11 +126,11 @@
             "time": null
           },
           "departure": {
-            "date": "2022-04-17",
-            "time": "14:13"
+            "date": null,
+            "time": null
           }
         },
-        "best_departure_estimate": "14:13",
+        "best_departure_estimate": "13:01",
         "status": {
           "cancellation": {
             "value": false,
@@ -138,11 +138,11 @@
           }
         },
         "source": "NextBuses",
-        "dir": "outbound",
+        "dir": "inbound",
         "operator_name": "National Express Coventry",
-        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/outbound/43000025502/2022-04-17/14:12/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
+        "id": "https://transportapi.com/v3/uk/bus/route/TCVW/21/inbound/43000025501/2022-04-18/13:01/timetable.json?app_id=f1be1ef1&app_key=3db5787d6e2c6c5df33f12f35437c970"
       }
     ]
   },
-  "source": "NextBuses"
+  "source": "NextBuses (cached)"
 }
