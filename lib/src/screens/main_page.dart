@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:share_plus/share_plus.dart';
 
+import '../../util.dart';
 import '../json/app_preferences.dart';
 import '../json/gps_entries.dart';
 import '../widgets/tabbed_scaffold.dart';
@@ -95,6 +97,33 @@ class MainPageState extends State<MainPage> {
               controller: widget.controller,
               initialPosition: _position,
             ),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  final position = _position;
+                  if (position == null) {
+                    return;
+                  }
+                  final distance = sensibleDistance(position.accuracy);
+                  final latitude = position.latitude;
+                  final longitude = position.longitude;
+                  final stringBuffer = StringBuffer()
+                    ..write('I am located within $distance of ')
+                    ..write('$latitude latitude, $longitude longitude. ')
+                    ..write(
+                      'See your own position at https://backstreets.site/conductor2/#/',
+                    );
+                  Share.share(
+                    stringBuffer.toString(),
+                    subject: 'GPS Position',
+                  );
+                },
+                child: const Icon(
+                  Icons.share,
+                  semanticLabel: 'Share Position',
+                ),
+              )
+            ],
           )
         ],
       );
