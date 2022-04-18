@@ -50,6 +50,7 @@ class NearbyStops extends StatefulWidget {
 class NearbyStopsState extends State<NearbyStops> {
   late final StreamSubscription<Position> _streamSubscription;
   Position? _position;
+  Map<String, dynamic>? _json;
   GpsEntries? _entries;
   String? _error;
 
@@ -79,11 +80,10 @@ class NearbyStopsState extends State<NearbyStops> {
             if (data == null) {
               throw StateError('Empty data.');
             }
-            final gpsEntries = GpsEntries.fromJson(data);
-            _entries = gpsEntries;
-            widget.cachePositions(gpsEntries);
             if (mounted) {
-              setState(() {});
+              setState(() {
+                _json = response.data;
+              });
             }
           } on Exception catch (e, s) {
             setState(
@@ -109,6 +109,12 @@ class NearbyStopsState extends State<NearbyStops> {
     final error = _error;
     if (error != null) {
       return CenterText(text: error);
+    }
+    final json = _json;
+    if (json != null) {
+      final gpsEntries = GpsEntries.fromJson(json);
+      _entries = gpsEntries;
+      widget.cachePositions(gpsEntries);
     }
     final gpsEntries = _entries ?? widget.gpsEntries;
     if (gpsEntries == null) {
