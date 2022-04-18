@@ -1,10 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../transit_stops/bus_stop.dart';
-import '../transit_stops/postcode.dart';
-import '../transit_stops/train_station.dart';
-import '../transit_stops/tram_stop.dart';
-import '../transit_stops/tube_station.dart';
+import '../json/transit_stops/bus_stop.dart';
+import '../json/transit_stops/postcode.dart';
+import '../json/transit_stops/train_station.dart';
+import '../json/transit_stops/tram_stop.dart';
+import '../json/transit_stops/tube_station.dart';
 
 part 'gps_entry.g.dart';
 
@@ -120,7 +120,7 @@ class GpsEntry {
       latitude: latitude,
       longitude: longitude,
       accuracy: accuracy,
-      atcoCode: atcoCode!,
+      code: atcoCode!,
     );
   }
 
@@ -134,7 +134,7 @@ class GpsEntry {
       latitude: latitude,
       longitude: longitude,
       accuracy: accuracy,
-      atcoCode: atcoCode!,
+      code: atcoCode!,
     );
   }
 
@@ -143,13 +143,20 @@ class GpsEntry {
     if (type != EntryType.trainStation) {
       throw StateError('This entry is a ${type.name}, not a train station.');
     }
+    final String code;
+    if (stationCode != null) {
+      code = 'crs:$stationCode';
+    } else if (tiplocCode != null) {
+      code = 'tiploc:$tiplocCode';
+    } else {
+      throw StateError('No valid code found in ${toJson()}');
+    }
     return TrainStation(
       name: title,
       latitude: latitude,
       longitude: longitude,
       accuracy: accuracy,
-      stationCode: stationCode,
-      tiplocCode: tiplocCode,
+      code: code,
     );
   }
 
@@ -163,7 +170,7 @@ class GpsEntry {
       latitude: latitude,
       longitude: longitude,
       accuracy: accuracy,
-      atcoCode: atcoCode!,
+      code: atcoCode!,
     );
   }
 }

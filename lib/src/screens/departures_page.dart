@@ -4,12 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../http.dart';
-import '../json/app_credentials.dart';
-import '../transit_stops/bus_stop.dart';
-import '../transit_stops/train_station.dart';
-import '../transit_stops/tram_stop.dart';
-import '../transit_stops/transit_stop.dart';
-import '../transit_stops/tube_station.dart';
+import '../json/app_preferences.dart';
+import '../json/transit_stops/train_station.dart';
+import '../json/transit_stops/transit_stop.dart';
 import '../widgets/center_text.dart';
 
 /// A page for showing the given [stop].
@@ -17,7 +14,7 @@ class DeparturesPage extends StatefulWidget {
   /// Create an instance.
   const DeparturesPage({
     required this.stop,
-    required this.credentials,
+    required this.preferences,
     // ignore: prefer_final_parameters
     super.key,
   });
@@ -26,7 +23,7 @@ class DeparturesPage extends StatefulWidget {
   final TransitStop stop;
 
   /// The app credentials to authenticate with.
-  final AppCredentials credentials;
+  final AppPreferences preferences;
 
   /// Create state for this widget.
   @override
@@ -52,27 +49,13 @@ class DeparturesPageState extends State<DeparturesPage> {
   Future<void> loadDepartures() async {
     final stop = widget.stop;
     final String url;
-    if (stop is TrainStation || stop is TubeStation) {
-      final String code;
-      if (stop is TrainStation) {
-        code = stop.code;
-      } else {
-        code = (stop as TubeStation).atcoCode;
-      }
-      url = 'train/station/$code/live.json';
-    } else if (stop is BusStop || stop is TramStop) {
-      final String code;
-      if (stop is BusStop) {
-        code = stop.atcoCode;
-      } else {
-        code = (stop as TramStop).atcoCode;
-      }
-      url = 'bus/stop/$code/live.json';
+    if (stop is TrainStation) {
+      url = 'train/station/${stop.code}/live.json';
     } else {
-      throw StateError('Cannot handle the transit stop $stop.');
+      url = 'bus/stop/${stop.code}/live.json';
     }
     final response = await get(
-      credentials: widget.credentials,
+      credentials: widget.preferences.appCredentials!,
       path: url,
     );
     File('departures.json').writeAsStringSync(

@@ -4,8 +4,8 @@ import 'package:geolocator/geolocator.dart';
 import '../../util.dart';
 import '../json/app_preferences.dart';
 import '../json/gps_entry.dart';
+import '../json/transit_stops/transit_stop.dart';
 import '../screens/departures_page.dart';
-import '../transit_stops/transit_stop.dart';
 
 /// A widget to view a list of.
 class StopsList extends StatefulWidget {
@@ -79,7 +79,7 @@ class _StopsListState extends State<StopsList> {
                       context: context,
                       builder: (final context) => DeparturesPage(
                         stop: stop!,
-                        credentials: widget.appPreferences.appCredentials!,
+                        preferences: widget.appPreferences,
                       ),
                     );
                     setState(() {});

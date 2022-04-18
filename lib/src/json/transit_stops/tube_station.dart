@@ -2,17 +2,14 @@
 
 import 'transit_stop.dart';
 
-/// A bus stop.
-class BusStop extends TransitStop {
+/// A tube station.
+class TubeStation extends TransitStop {
   /// Create an instance.
-  const BusStop({
+  const TubeStation({
     required super.name,
     required super.latitude,
     required super.longitude,
     required super.accuracy,
-    required this.atcoCode,
+    required super.code,
   });
-
-  /// The atco code for this stop.
-  final String atcoCode;
 }
